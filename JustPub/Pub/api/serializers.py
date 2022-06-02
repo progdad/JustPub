@@ -22,11 +22,12 @@ class BaseSerializerMixin(ModelSerializer):
 
 
 class DishListSerializer(BaseSerializerMixin):
+    type_of_food = CharField(source="type_of_food.name")
     url = HyperlinkedIdentityField(view_name="dish-detail", lookup_field="slug")
 
     class Meta:
         model = Dish
-        fields = ["name", "url"]
+        fields = ["type_of_food", "name", "url"]
 
 
 class DishRetrieveSerializer(BaseSerializerMixin):
@@ -57,11 +58,12 @@ class DishCreateUpdateSerializer(BaseSerializerMixin):
 
 
 class DishesTypeListSerializer(BaseSerializerMixin):
+    category = CharField(source="category.name")
     url = HyperlinkedIdentityField(view_name="dishestype-detail", lookup_field="slug")
 
     class Meta:
         model = DishesType
-        fields = ["name", "url"]
+        fields = ["category", "name", "url"]
 
 
 class DishesTypeRetrieveSerializer(BaseSerializerMixin):
@@ -107,7 +109,7 @@ class CategoryRetrieveSerializer(BaseSerializerMixin):
         all_current_category_dishes_types = DishesType.objects.filter(category=category)
         serializer = DishesTypeListSerializer(
             all_current_category_dishes_types, many=True,
-            context=self.context
+            context=self.context,
         )
         return serializer.data
 
