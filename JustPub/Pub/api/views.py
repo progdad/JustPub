@@ -1,5 +1,3 @@
-from rest_framework.generics import get_object_or_404
-from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from Pub.models import Category, DishesType, Dish
@@ -16,6 +14,8 @@ class BaseViewMixin(ModelViewSet):
     get_list_serializer = None
     get_retrieve_serializer = None
     post_create_update_serializer = None
+    # Redefine allowed HTTP methods for disallowing "OPTIONS", "HEAD", "PATCH" and others unneeded methods.
+    http_method_names = ['get', 'post', 'put', 'delete']
 
     def get_serializer_class(self, *args, **kwargs):
         if self.action == "list":
@@ -24,11 +24,6 @@ class BaseViewMixin(ModelViewSet):
             return self.get_retrieve_serializer
         elif self.action in ["create", "update", "partial_update"]:
             return self.post_create_update_serializer
-
-    def retrieve(self, request, slug=None, **kwargs):
-        model_instance = get_object_or_404(self.queryset, slug=slug)
-        serializer = self.get_retrieve_serializer(model_instance, context={'request': request})
-        return Response(serializer.data)
 
 
 class CategoryModelView(BaseViewMixin):
