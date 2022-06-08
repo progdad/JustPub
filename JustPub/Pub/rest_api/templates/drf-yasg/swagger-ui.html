@@ -1,0 +1,22 @@
+{% extends "drf-yasg/swagger-ui.html" %}
+
+
+{% block session_auth_button %}
+    {% csrf_token %}
+
+    {% block user_context_message %}
+        <div class="hello">
+            <span class="django-session">USER</span>
+            <span class="label label-primary">{{ request.user }}</span>
+        </div>
+    {% endblock %}
+
+        <div class='btn authorize'>
+            <a id="auth" class="header__btn" href="{% url 'user_logout' %}" data-sw-translate>
+                {% block django_logout_message %}
+                    Log Out
+                {% endblock %}
+            </a>
+        </div>
+
+{% endblock %}

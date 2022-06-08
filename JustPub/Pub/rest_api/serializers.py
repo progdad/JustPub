@@ -27,7 +27,7 @@ class DishListSerializer(BaseSerializerMixin):
 
     class Meta:
         model = Dish
-        fields = ["type_of_food", "name", "url"]
+        fields = ["name", "url", "type_of_food"]
 
 
 class DishRetrieveSerializer(BaseSerializerMixin):
@@ -63,7 +63,7 @@ class DishesTypeListSerializer(BaseSerializerMixin):
 
     class Meta:
         model = DishesType
-        fields = ["category", "name", "url"]
+        fields = ["name", "url", "category"]
 
 
 class DishesTypeRetrieveSerializer(BaseSerializerMixin):
