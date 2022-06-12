@@ -15,19 +15,15 @@ class BaseViewMixin(ModelViewSet):
 
     create:
         Create a new "{model_name}" model instance.
-            * Will be created an object with name that you set in the "name" field.
 
     retrieve:
         Return single "{model_name}" model instance.
-            * Will be deleted an object that matches "slug" field.
 
     delete:
         Delete "{model_name}" model instance.
-            * Will be deleted an object that matches "slug" field.
 
     update:
         Update "{model_name}" model instance.
-            * Will be deleted an object that matches "slug" field.
     """
 
     lookup_field = "slug"

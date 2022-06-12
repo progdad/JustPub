@@ -48,7 +48,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / "Pub/rest_api/templates",
-            BASE_DIR / "Pub/rest_api/templates/project_templates",
+            BASE_DIR / "Pub/rest_api/templates/auth_and_logout",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
