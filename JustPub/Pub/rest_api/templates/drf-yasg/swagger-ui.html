@@ -11,12 +11,12 @@
         </div>
     {% endblock %}
 
-        <div class='btn authorize'>
-            <a id="auth" class="header__btn" href="{% url 'user_logout' %}" data-sw-translate>
-                {% block django_logout_message %}
-                    Log Out
-                {% endblock %}
-            </a>
-        </div>
+    <div class='btn authorize'>
+        <a id="auth" class="header__btn" href="{% url 'user_logout' %}" data-sw-translate>
+            {% block django_logout_message %}
+                Log Out
+            {% endblock %}
+        </a>
+    </div>
 
 {% endblock %}

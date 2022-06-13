@@ -71,11 +71,14 @@ WSGI_APPLICATION = 'JustPub.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        "ENGINE": os.environ.get("POSTGRESQL_ENGINE", "django.db.backends.sqlite3"),
+        "NAME": os.environ.get("POSTGRESQL_DATABASE", BASE_DIR / "db.sqlite3"),
+        "USER": os.environ.get("POSTGRESQL_USER", "postgres"),
+        "PASSWORD": os.environ.get("POSTGRESQL_PASSWORD", "password"),
+        "HOST": os.environ.get("POSTGRESQL_HOST", "localhost"),
+        "PORT": os.environ.get("POSTGRESQL_PORT", "5432"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
