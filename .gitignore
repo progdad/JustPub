@@ -2,7 +2,7 @@ venv
 **/__pycache__
 .idea
 
-JustPub/Pub/migrations/00*.py
-!JustPub/Pub/migrations/0001_initial.py
+JustPub/Pub/migrations/*.py
+!JustPub/Pub/migrations/__init__.py
 
-JustPub/menu.json
+JustPub/db.sqlite3
