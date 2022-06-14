@@ -1,11 +1,11 @@
-from category_serializers import (
+from .category_serializers import (
     CategoryListSerializer, CategoryRetrieveSerializer, CategoryCreateUpdateSerializer
 )
 
-from dishestype_serializers import (
+from .dishestype_serializers import (
     DishesTypeListSerializer, DishesTypeRetrieveSerializer, DishesTypeCreateUpdateSerializer
 )
 
-from dishes_serializers import (
+from .dishes_serializers import (
     DishListSerializer, DishRetrieveSerializer, DishCreateUpdateSerializer
 )
