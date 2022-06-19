@@ -3,11 +3,11 @@ from rest_framework.relations import HyperlinkedIdentityField
 from rest_framework.serializers import CharField
 
 from Pub.models import DishesType, Dish
-from Pub.rest_api.serializers.base_serializer_mixin import BaseSerializerMixin
-from Pub.rest_api.serializers.dishes_serializers import DishListSerializer
+from Pub.rest_api.serializers.base_class import BaseSerializerClass
+from Pub.rest_api.serializers.dish import DishListSerializer
 
 
-class DishesTypeListSerializer(BaseSerializerMixin):
+class DishesTypeListSerializer(BaseSerializerClass):
     category = CharField(source="category.name")
     url = HyperlinkedIdentityField(view_name="dishestype-detail", lookup_field="slug")
 
@@ -16,7 +16,7 @@ class DishesTypeListSerializer(BaseSerializerMixin):
         fields = ["name", "url", "category"]
 
 
-class DishesTypeRetrieveSerializer(BaseSerializerMixin):
+class DishesTypeRetrieveSerializer(BaseSerializerClass):
     category = CharField(source="category.name")
     dishes = SerializerMethodField()
 
@@ -34,7 +34,7 @@ class DishesTypeRetrieveSerializer(BaseSerializerMixin):
         fields = ["category", "id", "name", "dishes"]
 
 
-class DishesTypeCreateUpdateSerializer(BaseSerializerMixin):
+class DishesTypeCreateUpdateSerializer(BaseSerializerClass):
     class Meta:
         model = DishesType
         fields = ["name", "category"]

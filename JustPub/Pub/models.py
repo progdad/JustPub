@@ -15,7 +15,7 @@ class BaseModelClass(models.Model):
 
 
 class Category(BaseModelClass):
-    class Meta(BaseModelClass.Meta):
+    class Meta:
         ordering = ["name"]
         verbose_name_plural = "1. Food Categories"
 
@@ -26,7 +26,7 @@ class Category(BaseModelClass):
 class DishesType(BaseModelClass):
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
-    class Meta(BaseModelClass.Meta):
+    class Meta:
         ordering = ["category", "name"]
         verbose_name_plural = "2. Types Of Dishes"
 
@@ -39,7 +39,7 @@ class Dish(BaseModelClass):
     description = models.CharField(max_length=1000)
     prices = models.JSONField()
 
-    class Meta(BaseModelClass.Meta):
+    class Meta:
         ordering = ["type_of_food", "name"]
         verbose_name_plural = "3. Dishes"
 

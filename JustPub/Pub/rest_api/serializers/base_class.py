@@ -2,7 +2,7 @@ from rest_framework.exceptions import ValidationError
 from rest_framework.serializers import ModelSerializer
 
 
-class BaseSerializerMixin(ModelSerializer):
+class BaseSerializerClass(ModelSerializer):
     @staticmethod
     def validate_name(name):
         if not name.replace(" ", "").replace("-", "").isalnum():
