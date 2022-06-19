@@ -8,7 +8,7 @@ from Pub.rest_api.serializers import (
 )
 
 
-class BaseViewMixin(ModelViewSet):
+class BaseViewClass(ModelViewSet):
     """
     list:
         Return all "{model_name}" model instances.
@@ -43,8 +43,8 @@ class BaseViewMixin(ModelViewSet):
             return self.post_create_update_serializer
 
 
-class CategoryModelView(BaseViewMixin):
-    __doc__ = BaseViewMixin.__doc__.format(model_name="Category")
+class CategoryModelView(BaseViewClass):
+    __doc__ = BaseViewClass.__doc__.format(model_name="Category")
 
     queryset = Category.objects.all()
     get_list_serializer = CategoryListSerializer
@@ -52,8 +52,8 @@ class CategoryModelView(BaseViewMixin):
     post_create_update_serializer = CategoryCreateUpdateSerializer
 
 
-class DishesTypeModelView(BaseViewMixin):
-    __doc__ = BaseViewMixin.__doc__.format(model_name="DishesType")
+class DishesTypeModelView(BaseViewClass):
+    __doc__ = BaseViewClass.__doc__.format(model_name="DishesType")
 
     queryset = DishesType.objects.all()
     get_list_serializer = DishesTypeListSerializer
@@ -61,8 +61,8 @@ class DishesTypeModelView(BaseViewMixin):
     post_create_update_serializer = DishesTypeCreateUpdateSerializer
 
 
-class DishModelView(BaseViewMixin):
-    __doc__ = BaseViewMixin.__doc__.format(model_name="Dish")
+class DishModelView(BaseViewClass):
+    __doc__ = BaseViewClass.__doc__.format(model_name="Dish")
 
     queryset = Dish.objects.all()
     get_list_serializer = DishListSerializer

@@ -3,7 +3,7 @@ from rest_framework_simplejwt.views import TokenRefreshView, TokenObtainPairView
 
 from Pub.rest_api.views import LoginView, LogoutView, documentation_view
 
-from .pub_rest_endpoints import rest_endpoints
+from .pub_rest import rest_endpoints
 
 
 urlpatterns = [

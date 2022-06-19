@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.admin import ModelAdmin
 
 from Pub.models import Category, DishesType, Dish
-from .admin_forms import CategoryAdminForm, DishesTypeAdminForm, DishAdminForm
+from .forms import CategoryAdminForm, DishesTypeAdminForm, DishAdminForm
 
 
 class CategoryAdmin(ModelAdmin):
